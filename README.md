@@ -1,5 +1,6 @@
 # login-signup-api
 This API is created to store the user's signup details and also to authenticate user when they try to login.
+
 The API URIs are - 
 
 POST /api/v1/login - 
