@@ -6,8 +6,5 @@ const url = `mongodb+srv://${userName}:${password}@cluster0.iupyy.mongodb.net/lo
 mongoose.connect(url);
 
 export const connection = mongoose.connection;
-// connection.on('open', () => {
-//     console.log('connection opened!')
-// })
 
 
