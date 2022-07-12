@@ -1,4 +1,4 @@
-import { connection } from "../models/db.js";
+import { connection, User } from "../models/db.js";
 
 let collection = connection.collection("users");
 
@@ -28,4 +28,11 @@ export const addUserToDB = async (email, application, hashedPassword) => {
       message: err.message,
     };
   }
+};
+
+export const checkUserInDB = async (email, application) => {
+  
+  const result = await User.findOne({email: email});
+  if(result.application === application) return true;
+  return false;
 };

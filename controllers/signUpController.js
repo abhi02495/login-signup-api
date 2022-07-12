@@ -1,10 +1,11 @@
 import express from "express";
-import { userSignUp, isUserPresent } from "../services/signUpService.js";
+import { userSignUp } from "../services/signUpService.js";
 import { Validations } from "../common/validations.js";
 
 const router = express.Router();
 
 router.post("/signup", async (req, res) => {
+    
   let email = req.body.email;
   let application = req.body.application;
   let password = req.body.password;
