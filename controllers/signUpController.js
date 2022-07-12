@@ -5,7 +5,6 @@ import { Validations } from "../common/validations.js";
 const router = express.Router();
 
 router.post("/signup", async (req, res) => {
-    
   let email = req.body.email;
   let application = req.body.application;
   let password = req.body.password;
@@ -19,10 +18,7 @@ router.post("/signup", async (req, res) => {
 
   let result;
   if (password == confirmPassword) {
-    // use isUserPresent method to check the DB for the user
-    // if returned true then
     result = await userSignUp(email, application, password);
-
   } else {
     res
       .status(400)
