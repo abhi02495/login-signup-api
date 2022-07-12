@@ -1,6 +1,6 @@
 import express from "express";
 import { userSignUp, isUserPresent } from "../services/signUpService.js";
-// import dbConnection from '../models/db.js';
+import { Validations } from "../common/validations.js";
 
 const router = express.Router();
 
@@ -10,16 +10,23 @@ router.post("/signup", async (req, res) => {
   let password = req.body.password;
   let confirmPassword = req.body.confirmPassword;
 
-  let result;
+  let validation = Validations(email, password);
+  if (validation.isEmailPasswordCorrect === false) {
+    res.status(400).send({ message: validation.message });
+    return;
+  }
 
+  let result;
   if (password == confirmPassword) {
     // use isUserPresent method to check the DB for the user
     // if returned true then
     result = await userSignUp(email, application, password);
+
   } else {
     res
       .status(400)
       .send({ message: `Passwords doesn't match. Please try again` });
+    return;
   }
 
   res.send(result);
