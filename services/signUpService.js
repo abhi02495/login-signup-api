@@ -5,7 +5,6 @@ import { addUserToDB, checkUserInDB } from "../repositories/signUpRepository.js"
 export const userSignUp = async (email, application, password) => {
 
   let isUserPresent = await checkUserInDB(email, application);
-
   if(isUserPresent){
       return {
           email: email,

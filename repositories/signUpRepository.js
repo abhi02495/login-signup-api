@@ -12,7 +12,6 @@ export const addUserToDB = async (email, application, hashedPassword) => {
   try {
     collection.insertOne(newUser, function (err, res) {
       if (err) throw new Error("User not added!");
-      connection.close();
     });
 
     return {
@@ -32,7 +31,19 @@ export const addUserToDB = async (email, application, hashedPassword) => {
 
 export const checkUserInDB = async (email, application) => {
   
-  const result = await User.findOne({email: email});
-  if(result.application === application) return true;
-  return false;
+  const result = await User.find({email: email});
+  let count=0;
+  result.map((item) => {
+    console.log(item);
+    if(item.application == application ){
+      count++;
+    }
+  })
+
+  if(count> 0){ 
+    return true;
+  }
+  else {
+    return false;
+  }
 };
