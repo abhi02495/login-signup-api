@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "af71cece-01d2-42f7-8275-dd3731249732",
+		"name": "loginSignUp APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SignUp endpoint",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"absh2495@gmail.com\",\n    \"application\": \"invito\",\n    \"password\": \"Shub\",\n    \"confirmPassword\": \"Shub\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
