@@ -32,15 +32,15 @@ export const addUserToDB = async (email, application, hashedPassword) => {
 export const checkUserInDB = async (email, application) => {
   
   const result = await User.find({email: email});
-  let count=0;
+  let user_res;
   result.map((item) => {
     if(item.application == application ){
-      count++;
+      user_res = item;
     }
   })
 
-  if(count> 0){ 
-    return true;
+  if(user_res != null){
+    return user_res
   }
   else {
     return false;

@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import { APPLICATION_CONSTANTS } from "../common/constants.js";
-import { addUserToDB, checkUserInDB } from "../repositories/signUpRepository.js";
+import { addUserToDB, checkUserInDB } from "../repositories/repository.js";
 
 export const userSignUp = async (email, application, password) => {
 
