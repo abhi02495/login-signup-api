@@ -34,7 +34,6 @@ export const checkUserInDB = async (email, application) => {
   const result = await User.find({email: email});
   let count=0;
   result.map((item) => {
-    console.log(item);
     if(item.application == application ){
       count++;
     }
