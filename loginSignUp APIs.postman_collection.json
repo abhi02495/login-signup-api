@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "af71cece-01d2-42f7-8275-dd3731249732",
-		"name": "loginSignUp APIs",
+		"name": "Login and SignUp API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
