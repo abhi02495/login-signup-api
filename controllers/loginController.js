@@ -12,7 +12,6 @@ router.post("/login", async (req, res) => {
   let result;
   if (user) {
     result = await verifyUser(password, user.password);
-    console.log(result);
   } else {
     result = {
       message: "No user found",
