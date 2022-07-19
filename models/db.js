@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const url = `mongodb+srv://${process.env.USERNAME}:${process.env.DB_PASSWORD}@cluster0.iupyy.mongodb.net/loginSignup`;
+const url = `mongodb+srv://${process.env.USERNAME}:${process.env.DB_PASSWORD}@cluster0.iupyy.mongodb.net/${process.env.DATABASE}`;
 mongoose.connect(url);
 export const User = mongoose.model('User', {
     email: {type: String},

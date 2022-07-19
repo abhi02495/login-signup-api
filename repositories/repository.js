@@ -1,6 +1,8 @@
 import { connection, User } from "../models/db.js";
+import dotenv from 'dotenv';
+dotenv.config();
 
-let collection = connection.collection("users");
+let collection = connection.collection(`${process.env.COLLECTION}`);
 
 export const addUserToDB = async (email, application, hashedPassword) => {
   let newUser = {
