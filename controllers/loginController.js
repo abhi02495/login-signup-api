@@ -14,13 +14,16 @@ router.post("/login", async (req, res) => {
     // will receive response whether user is valid or not
 
     const user = await checkUser(email, application);
-    console.log(user);
+    console.log(user.password);
     let result;
     if(user){
-        result = verifyUser(password, user['password'].toString());
+        result = await verifyUser(password, user.password);
+        console.log(result);
     }
     else {
-        result = false;
+        result = {
+            message: "No user found"
+        };
     }
 
 

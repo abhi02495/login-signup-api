@@ -6,7 +6,8 @@ const url = `mongodb+srv://${process.env.USERNAME}:${process.env.DB_PASSWORD}@cl
 mongoose.connect(url);
 export const User = mongoose.model('User', {
     email: {type: String},
-    application: {type: String}
+    application: {type: String},
+    password: {type: String}
 })
 
 export const connection = mongoose.connection;

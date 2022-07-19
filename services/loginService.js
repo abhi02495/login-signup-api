@@ -10,12 +10,29 @@ export const checkUser = async (email, application) => {
   // };
 
   const isUserinDb = await checkUserInDB(email, application);
-  console.log(isUserinDb);
   return isUserinDb;
 };
 
-export const verifyUser = (password, hash) => {
-  console.log(hash);
-  const result = bcrypt.compare(password, hash);
-  return result;
+export const verifyUser = async (password, hash) => {
+  // console.log(hash);
+  let password_comp_result;
+  await bcrypt.compare(password, hash, function(err, res){
+    if(err){
+      throw new Error('bcrypt failed!')
+    }
+    if(res){
+      password_comp_result = {
+        success: true,
+        message: 'Login successful'
+      }
+    }
+    else {
+      password_comp_result = {
+        success: false,
+        message: 'Passwords not matching.'
+      }
+    }
+  });
+
+  return password_comp_result;
 };
