@@ -8,23 +8,25 @@ POST /api/v1/login -
   {
     "email" : "abc@example.com",
     "application": "xyz",
-    "password" : "mypass"
+    "password" : "mypass123@"
   }
   
   Response Body - 
   {
-    "email" : "abc@example.com",
-    "application": "xyz",
-    "isAuthenticated" : true/false
-  }
+    "email": "abc@example.com",
+    "authenticated": {
+        "success": false,
+        "message": "Password is incorrect"
+    }
+}
  
 POST /api/v1/signup - 
   Request Body - 
   {
     "email" : "abc@example.com",
     "application": "xyz",
-    "password" : "mypass",
-    "confirmPassword" : "mypass"
+    "password" : "mypass123@",
+    "confirmPassword" : "mypass123@"
   }
   Response Body - 
   {
@@ -34,5 +36,5 @@ POST /api/v1/signup -
   }
   
 SIGNUP - 
-1. check user whether they are present or not in the DB along with the application they are trying to signuo with
+1. check user whether they are present or not in the DB along with the application they are trying to signup with
 2. if user is present but application is different then enter signup, if not return user already signed up
