@@ -38,4 +38,9 @@ POST /api/v1/signup -
 SIGNUP - 
 1. check user whether they are present or not in the DB along with the application they are trying to signup with
 2. if user is present but application is different then enter signup, if not return user already signed up
-3. Send JWT after the singup is successful
+3. Send JWT after the signup is successful
+
+LOGIN - 
+1. Take in the user's mail, application from where they are logging in and the password
+2. Use bcrypt to check the password stored in the DB
+3. If successful then send the corresponding JWT in the response for further use.
