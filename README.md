@@ -38,3 +38,4 @@ POST /api/v1/signup -
 SIGNUP - 
 1. check user whether they are present or not in the DB along with the application they are trying to signup with
 2. if user is present but application is different then enter signup, if not return user already signed up
+3. Send JWT after the singup is successful
