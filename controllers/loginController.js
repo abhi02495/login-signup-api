@@ -1,5 +1,5 @@
 import express from "express";
-import { verifyUser, checkUser } from "../services/loginService.js";
+import { verifyUser, checkUser, generateJwtToken} from "../services/loginService.js";
 import { APPLICATION_CONSTANTS } from "../common/constants.js";
 
 const router = express.Router();
@@ -21,9 +21,12 @@ router.post("/login", async (req, res) => {
     return;
   }
 
+  const accessToken = await generateJwtToken(user);
+
   res.status(200).send({
     email: email,
     authenticated: result,
+    accessToken: accessToken
   });
 });
 

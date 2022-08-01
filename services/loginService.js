@@ -1,7 +1,9 @@
 import bcrypt from "bcrypt";
 import { checkUserInDB } from "../repositories/repository.js";
 import { APPLICATION_CONSTANTS } from "../common/constants.js";
-import { json } from "express";
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const checkUser = async (email, application) => {
   const isUserinDb = await checkUserInDB(email, application);
@@ -23,3 +25,13 @@ export const verifyUser = async (password, hash) => {
     }
   }
 };
+
+export const generateJwtToken = async (userData) => {
+  let data = {
+    email: userData.email,
+    application: userData.application
+  }
+  let jwtSecretKey = process.env.JWT_SECRET_KEY
+  const token = jwt.sign(data, jwtSecretKey);
+  return token;
+}
