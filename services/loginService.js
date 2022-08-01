@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import { checkUserInDB } from "../repositories/repository.js";
+import { APPLICATION_CONSTANTS } from "../common/constants.js";
 import { json } from "express";
 
 export const checkUser = async (email, application) => {
@@ -12,13 +13,13 @@ export const verifyUser = async (password, hash) => {
   if(!data){
     return {
       success: false,
-      message: 'Password is incorrect'
+      message: APPLICATION_CONSTANTS.PASSWORD_INCORRECT
     }
   }
   else {
     return {
       success: true,
-      message: 'Passwords match.'
+      message: APPLICATION_CONSTANTS.PASSWORD_MATCHES
     }
   }
 };

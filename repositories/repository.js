@@ -1,4 +1,5 @@
 import { connection, User } from "../models/db.js";
+import { APPLICATION_CONSTANTS } from "../common/constants.js";
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -13,7 +14,7 @@ export const addUserToDB = async (email, application, hashedPassword) => {
 
   try {
     collection.insertOne(newUser, function (err, res) {
-      if (err) throw new Error("User not added!");
+      if (err) throw new Error(APPLICATION_CONSTANTS.USER_NOT_ADDED);
     });
 
     return {

@@ -1,5 +1,6 @@
 import express from "express";
 import { verifyUser, checkUser } from "../services/loginService.js";
+import { APPLICATION_CONSTANTS } from "../common/constants.js";
 
 const router = express.Router();
 
@@ -14,7 +15,7 @@ router.post("/login", async (req, res) => {
     result = await verifyUser(password, user.password);
   } else {
     result = {
-      message: "No user found",
+      message: APPLICATION_CONSTANTS.NO_USER_FOUND,
     };
     res.status(400).send(result);
     return;
