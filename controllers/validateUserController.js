@@ -14,9 +14,12 @@ router.post('/validateUser', (req,res) => {
         let accessToken = req.body.accessToken;
         const verified = jwt.verify(accessToken, jwtSecretKey);
         if(verified){
-            return res.send("Successfully Verified");
+            return res.send(
+                {
+                    message: APPLICATION_CONSTANTS.JWT_VERIFIED
+                }
+            );
         }else{
-            // Access Denied
             return res.status(401).send(error);
         }
     }catch(error){

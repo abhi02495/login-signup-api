@@ -7,5 +7,6 @@ export const APPLICATION_CONSTANTS = {
     PASSWORDS_NOT_MATCHING: 'Passwords does not match. Please try again!',
     USER_NOT_ADDED: 'Error! User not added',
     PASSWORD_INCORRECT: 'Incorrect Password',
-    PASSWORD_MATCHES: 'Passwords matching'
+    PASSWORD_MATCHES: 'Passwords matching',
+    JWT_VERIFIED: 'User Successfully Verified.'
 }
