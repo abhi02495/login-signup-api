@@ -44,3 +44,7 @@ LOGIN -
 1. Take in the user's mail, application from where they are logging in and the password
 2. Use bcrypt to check the password stored in the DB
 3. If successful then send the corresponding JWT in the response for further use.
+
+ToDo -
+Create database for application details.
+If not available then insert new app using guid
